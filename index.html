@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dashboard Loja Tecnologia</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div>
+      <p class="tag">Loja Tecnologia</p>
+      <h1>Dashboard de Vendas</h1>
+      <p class="subtitle">Indicadores comerciais atualizados a partir do Google Sheets.</p>
+    </div>
+
+    <div class="update-box">
+      <span>Atualizado às</span>
+      <strong id="ultimaAtualizacao">--:--:--</strong>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="kpis">
+      <article class="kpi primary">
+        <span>Faturamento total</span>
+        <strong id="faturamentoTotal">-</strong>
+      </article>
+
+      <article class="kpi">
+        <span>Total de vendas</span>
+        <strong id="totalVendas">-</strong>
+      </article>
+
+      <article class="kpi">
+        <span>Ticket médio</span>
+        <strong id="ticketMedio">-</strong>
+      </article>
+
+      <article class="kpi">
+        <span>Lucro bruto</span>
+        <strong id="lucroBruto">-</strong>
+      </article>
+
+      <article class="kpi">
+        <span>Quantidade vendida</span>
+        <strong id="quantidadeVendida">-</strong>
+      </article>
+
+      <article class="kpi">
+        <span>Produto mais vendido</span>
+        <strong id="produtoMaisVendido">-</strong>
+      </article>
+    </section>
+
+    <section class="charts">
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Faturamento por categoria</h2>
+          <p>Ranking das categorias por receita.</p>
+        </div>
+        <div class="chart-box">
+          <canvas id="graficoCategorias"></canvas>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Participação por canal</h2>
+          <p>Distribuição percentual do faturamento.</p>
+        </div>
+        <div class="chart-box">
+          <canvas id="graficoCanais"></canvas>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Faturamento por vendedor</h2>
+          <p>Desempenho comercial por vendedor.</p>
+        </div>
+        <div class="chart-box">
+          <canvas id="graficoVendedores"></canvas>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Top produtos vendidos</h2>
+          <p>Produtos com maior quantidade vendida.</p>
+        </div>
+        <div class="chart-box">
+          <canvas id="graficoProdutos"></canvas>
+        </div>
+      </article>
+    </section>
+
+    <section class="tables">
+      <article class="panel full">
+        <div class="panel-header">
+          <h2>Categorias</h2>
+          <p>Resumo detalhado por categoria.</p>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Categoria</th>
+                <th>Faturamento</th>
+                <th>Lucro bruto</th>
+                <th>Qtd vendida</th>
+                <th>Ticket médio</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaCategorias"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Canais</h2>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Canal</th>
+                <th>Vendas</th>
+                <th>Faturamento</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaCanais"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Pagamentos</h2>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Forma</th>
+                <th>Vendas</th>
+                <th>Faturamento</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaPagamentos"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Regiões</h2>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Região</th>
+                <th>Vendas</th>
+                <th>Faturamento</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaRegioes"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Top produtos</h2>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Qtd vendida</th>
+                <th>Faturamento</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaProdutos"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
